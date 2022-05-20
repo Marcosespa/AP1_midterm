@@ -73,7 +73,21 @@ public class CrosswordController {
 	 * @return
 	 */
 	public String getHint(String letter) {
-
+		String out="";
+		boolean b = true;
+		for(int i=0 ;i<crossword.length ; i++) {
+			for(int j=0 ;j<crossword[0].length  ; j++) {
+					if(crossword[i][j].getLetter().equalsIgnoreCase(letter) && crossword[i][j].getState()==CellType.CLOSED && b==true){ 
+						crossword[i][j].setState(CellType.OPEN);
+						out+="Hay una palabra con "+ letter +" en el crucigrama en la posicion " +i + j +"\n";
+						b=false;
+					}else{
+						out+= "Lo siento, no hay palabras con "+ letter;
+						b=false;
+					}	
+			}
+		}
+		return out;
 	}
 	
 
