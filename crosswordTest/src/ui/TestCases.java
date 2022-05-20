@@ -28,8 +28,15 @@ public class TestCases {
 		
 	}
 	private void createMedium() {
-		// TODO Auto-generated method stub
-		
+		String[][] medium = 
+			{
+					{"a", "n", "a", " ", "d", "h", " "},
+					{" ", "o", "l", "a", " ", " x", "k"},
+					{"a", " ", "a", "r", "e", "h", "c"},
+					{" ", "a", " ", "o", "d", "d", ""}
+		};
+		this.medium = medium;
+				
 	}
 	private void createSmall() {
 		String[][] small = 
