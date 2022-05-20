@@ -19,7 +19,29 @@ public class CrosswordController {
 	 * the initial state of a crossword puzzle
 	 */
 	public void initCrossword(String[][] puzzle) {
-		
+
+
+		crossword= new Cell[puzzle.length][puzzle[0].length];	
+		int num=1;
+
+		for(int i=0 ;i<puzzle.length ; i++) {
+
+			for(int j=0 ;j<puzzle[0].length  ; j++) {		
+				if(puzzle[i][j]==null){
+					if(puzzle[i][j].equalsIgnoreCase("")){ // EL ESTADO ES BLACK
+						Cell cell= new Cell(CellType.BLACK, "", 0);
+						crossword[i][j]= cell;
+					}else{
+
+						Cell cell= new Cell(CellType.CLOSED, puzzle[i][j], num);
+						crossword[i][j]= cell;						
+						num++;
+					}
+				}
+			}
+
+		}
+
 		
 	}
 	/**
@@ -51,10 +73,10 @@ public class CrosswordController {
 	 * @return
 	 */
 	public String getHint(String letter) {
-		
-		return null;
+
 	}
 	
+
 	/**
 	 * 
 	 * @param letter

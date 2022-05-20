@@ -4,6 +4,10 @@
  */
 
 package ui;
+/*
+To compile: javac -cp src src/ui/MainCrossword.java -d bin
+To excecute: java -cp bin ui.MainCrossword
+*/
 
 import java.util.Scanner;
 
