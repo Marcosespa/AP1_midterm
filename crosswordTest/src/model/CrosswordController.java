@@ -75,15 +75,14 @@ public class CrosswordController {
 	public String getHint(String letter) {
 		String out="";
 		boolean b = true;
-		for(int i=0 ;i<crossword.length ; i++) {
-			for(int j=0 ;j<crossword[0].length  ; j++) {
-					if(crossword[i][j].getLetter().equalsIgnoreCase(letter) && crossword[i][j].getState()==CellType.CLOSED && b==true){ 
+		for(int i=0 ;i<crossword.length && b==true ; i++) {
+			for(int j=0 ;j<crossword[0].length && b==true  ; j++) {
+					if(crossword[i][j].getLetter().equalsIgnoreCase(letter) && crossword[i][j].getState()==CellType.CLOSED ){ 
 						crossword[i][j].setState(CellType.OPEN);
 						out+="Hay una palabra con "+ letter +" en el crucigrama en la posicion " +i + j +"\n";
 						b=false;
 					}else{
 						out+= "Lo siento, no hay palabras con "+ letter;
-						b=false;
 					}	
 			}
 		}
@@ -98,8 +97,18 @@ public class CrosswordController {
 	 * @return
 	 */
 	public String evaluateCell(String letter, int num) {
-		
-		return null;
+		String out="";
+
+		for(int i=0 ;i<crossword.length ; i++) {
+			for(int j=0 ;j<crossword[0].length  ; j++) {
+					if(crossword[i][j].getLetter().equalsIgnoreCase(letter) && crossword[i][j].getNumber()==num){ 
+ 						out+="“La letras "+ letter +" si está en la casilla " +i + j +"\n";
+					}else{
+						out+= "Lo siento,  no está en la  casilla la letra "+ letter;
+					}	
+			}
+		}		
+		return out;
 	}
 	
 	public String showCrossword() {
